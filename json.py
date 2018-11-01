@@ -1,19 +1,20 @@
 import simplejson as json
 
-string="""
-{
-  "values" : [
-    {
-      "from" : "NameError",
-      "to" : "NaamNahiHaiError"
-    },
-    {
-      "from" : "unexpected indent",
-      "to" : "Aapke code ki formatting theek nahi hai. Aapko apne code ki indentation (yaani spacing) theek karo, jisse ki python aapke code ko samajh jayein."
-    }
-  ]
-}
-"""
-
-data=json.loads(string)
-print(data)
+user=input("enter one string")
+with open('error.json') as fileObject:
+  fileContents = fileObject.read()
+  r = json.loads(fileContents)
+j=0
+while True:
+  a=r['values'][j]['from']
+  if user in a:
+    print(r['values'][j]['to'])
+    break
+  j+=1
+#print(r)
+#a=r['values'][0]['from']
+#print(r['values'][0]['from'])
+#if user in a:
+#  print(r['values'][0]['to'])
+#data=json.loads(string)
+#print(data)
